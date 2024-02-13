@@ -1,0 +1,25 @@
+{
+  "extends": "@tsconfig/recommended",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "lib": ["ES2021", "ES2022.Object", "DOM", "ES2021.String"],
+    "target": "es2021",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "declaration": true,
+    "experimentalDecorators": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "useDefineForClassFields": true,
+    "strictPropertyInitialization": false,
+    "types": ["dotenv-flow"]
+  },
+  "exclude": ["node_modules/", "dist/", "tests/", "docs/", "db/", "memory/", "tmp/"],
+  "include": ["./src", "./src/lib", "./src/utils", "./src/models", "./src/routes", "./src/global.d.ts"]
+}

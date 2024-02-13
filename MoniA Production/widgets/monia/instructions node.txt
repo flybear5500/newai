@@ -1,0 +1,83 @@
+export PATH=$PATH:/opt/plesk/node/20/bin/
+
+cd /var/www/vhosts/cercle.business/devel.cercle.business/widgets/monia_dev
+ou
+cd /var/www/vhosts/cercle.business/html/widgets/monia
+/opt/plesk/node/20/bin/npm run dev
+
+
+après modifs :
+npm run build
+pm2 restart MoniA
+pm2 save
+
+pm2 logs MoniA  --lines 200
+pm2 env MoniA
+
+pm2 monit
+pm2 list
+
+pm2 start npm --name "mon-app-dev" -- run start 
+
+pm2 start npm --name "MoniADev" -- run dev --watch 
+
+redémarrer toutes les heures et si modifs de fichiers (hors node-module):
+pm2 start npm --name "MoniADev" -- run dev --watch --cron "0 * * * *"
+
+
+
+/opt/plesk/python/2.7/bin
+
+https://www.obfuscator.io
+Options default avec self defending
+
+##gestion pm2##
+
+npm install pm2 -g
+
+pm2 list
+pm2 restart MoniA
+pm2 reload MoniA
+
+pm2 start app.js --watch
+pm2 restart app.js --no-watch
+pm2 restart app.js --watch
+
+
+
+
+
+privacy :
+public : 0
+enregistrés : 1
+relations directes : 2
+connexions imbriquées : 3
+privé : 99
+
+
+
+//add new files to node application
+$privacy_mappings = [
+    "0" => 1, //public
+    "1" => 2, //registered users
+    "2" => 4, //connections of a user
+    "3" => 8, //linked connections
+    "90" => 16,
+    "99" => 32, //private
+    "MONIA-CO-1" => 64,
+    "MONIA-CO-2" => 128,
+    "MONIA-CO-3" => 256,
+    "MONIA-CO-4" => 512,
+    "MONIA-CO-5" => 1024,
+    "MONIA-CO-6" => 2048,
+    "MONIA-CO-7" => 4096,
+    "MONIA-CO-8" => 8192,
+    "MONIA-CO-9" => 16384,
+    "MONIA-CO-10" => 32768,
+    "MONIA-CO-11" => 65536,
+    "MONIA-CO-12" => 131072,
+    "MONIA-CO-13" => 262144,
+    "MONIA-CO-14" => 524288,
+    "MONIA-CO-15" => 1048576,    
+];
+

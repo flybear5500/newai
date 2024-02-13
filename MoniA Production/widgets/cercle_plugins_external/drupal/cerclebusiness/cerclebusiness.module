@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Ajoute le widget Cercle Business au site.
+ */
+
+use Drupal\Core\Render\Markup;
+
+/**
+ * Implémente hook_page_attachments().
+ */
+function cercle_business_page_attachments(array &$attachments) {
+  $is_admin_route = \Drupal::service('router.admin_context')->isAdminRoute();
+
+if (!$is_admin_route) {
+  $config = \Drupal::config('cerclebusiness.settings');
+  $token = $config->get('cerclebusiness_token');
+
+  if (!empty($token)) {
+    $script = <<<JS
+      !function(c, e) {
+          (e = c.createElement('script')).async = 1,
+          e.src = 'https://cercle.business/widgets/cercle/js/widget.js?path=actia?token={$token}',
+          c.documentElement.appendChild(e);
+      }(document);
+JS;
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#tag' => 'script',
+        '#value' => Markup::create($script),
+      ],
+      'cercle_business',
+    ];
+  }
+ } 
+}

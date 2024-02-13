@@ -1,0 +1,6 @@
+name: Cercle Business
+type: module
+description: 'Un module pour installer le widget Cercle Business et Monia sur votre site Drupal.'
+package: Custom
+core_version_requirement: ^8 || ^9
+version: 1.0.0

@@ -1,0 +1,91 @@
+{
+  "name": "MoniA",
+  "version": "0.9.0",
+  "description": "MoniA is designed to support context-aware requests to the OpenAI API, providing unlimited context and chat history for more cost-efficient and accurate content generation.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "private": "true",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc --declaration --outDir dist/",
+    "dev": "cross-env NODE_ENV=development tsx src/index.ts --inspect",
+    "start": "NODE_ENV=production npm run build && node dist/index.js",
+    "lint": "eslint src",
+    "lint:fix": "npm run lint --fix",
+    "format": "prettier --write \"**/*.ts\"",
+    "format:check": "prettier --list-different \"**/*.ts\"",
+    "update-readme": "NODE_ENV=development tsx -r dotenv/config src/updateReadme.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://"
+  },
+  "keywords": [
+    "ai-chatbot",
+    "nodejs",
+    "context-aware",
+    "chatgpt",
+    "gpt-4"
+  ],
+  "author": "Gordon Mickel <gordon@dociq.io> initial idea && Jean Machuron <jmachuron@cercle.business> adaptation to MoniA and all users",
+  "license": "MIT",
+  "homepage": "https://cercle.business/",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/body-parser": "^1.19.2",
+    "@types/common-tags": "^1.8.1",
+    "@types/cors": "^2.8.13",
+    "@types/crawler": "^1.2.2",
+    "@types/express": "^4.17.17",
+    "@types/fs-extra": "^11.0.1",
+    "@types/node": "^20.1.4",
+    "@types/turndown": "^5.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.40.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
+    "tsx": "^3.12.7",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@pinecone-database/pinecone": "^0.1.6",
+    "@types/dotenv-flow": "^3.2.0",
+    "chalk": "^5.2.0",
+    "cheerio": "^1.0.0-rc.12",
+    "common-tags": "^1.8.2",
+    "cors": "^2.8.5",
+    "crawler": "^1.4.0",
+    "d3-dsv": "^2.0.0",
+    "dotenv": "^16.0.3",
+    "dotenv-flow": "^3.2.0",
+    "epub2": "^3.0.1",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.1",
+    "hnswlib-node": "^1.4.2",
+    "html-to-text": "^9.0.5",
+    "langchain": "^0.0.96",
+    "mammoth": "^1.5.1",
+    "moment-timezone": "^0.5.43",
+    "mysql2": "^3.3.2",
+    "ora": "^6.3.1",
+    "pdf-parse": "^1.1.1",
+    "stream-chain": "^2.2.5",
+    "stream-json": "^1.8.0",
+    "streamifier": "^0.1.1",
+    "turndown": "^7.1.2",
+    "uuid": "^9.0.0",
+    "youtube-transcript": "^1.0.6"
+  },
+  "directories": {
+    "doc": "docs"
+  }
+}
